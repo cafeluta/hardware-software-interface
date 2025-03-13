@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 #include "iterate.h"
+#include <stdio.h>
 
 /**
  * TODO:

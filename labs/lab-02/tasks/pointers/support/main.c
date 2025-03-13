@@ -29,9 +29,9 @@ int main(void)
 	 * If your function is implemented correctly, the assertion will succeed.
 	 * Otherwise, the program will crash.
 	 */
-	/* assert(SIGN(my_strcmp(s1, s2)) == SIGN(strcmp(s1, s2))); */
-	/* assert(my_strcpy(dest_str, src) && !strcmp(dest_str, src)); */
-	/* assert(my_memcpy(dest_mem, src, sizeof(src)) && !memcmp(dest_mem, src, sizeof(src))); */
+	assert(SIGN(my_strcmp(s1, s2)) == SIGN(strcmp(s1, s2)));
+	assert(my_strcpy(dest_str, src) && !strcmp(dest_str, src));
+	assert(my_memcpy(dest_mem, src, sizeof(src)) && !memcmp(dest_mem, src, sizeof(src)));
 
 	free(dest_str);
 	free(dest_mem);
