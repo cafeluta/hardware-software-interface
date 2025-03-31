@@ -1,6 +1,6 @@
 ; SPDX-License-Identifier: BSD-3-Clause
 
-%include "printf32.asm"
+%include "../utils/printf32.asm"
 
 %define ARRAY_SIZE    10
 
@@ -11,5 +11,20 @@ section .text
 extern printf
 global main
 main:
-	; TODO: Implement the code to count negative and positive numbers in the array
+    mov ecx, ARRAY_SIZE
+    xor ebx, ebx  ; pos
+    xor edx, edx  ; neg
+
+next_element:
+    mov eax, dword[dword_array + exc*4 - 4]
+    cmp eax, 0
+    jl add_to_neg
+    inc ebx
+    jmp test_end
+add_to_neg:
+    inc edx
+test_end:
+    loop next_element
+
+    PRINTF32 `Num pos is %u, num neg is %u\n\x0`, ebx, edx
     ret
