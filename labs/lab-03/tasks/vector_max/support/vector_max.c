@@ -9,8 +9,15 @@ int vector_max(int *v, int len)
 	int max;
 	unsigned int i;
 
-	/**
-	 * TODO: Implement finding the maximum value in the vector
-	 */
-	return -1;
+	i = 0;
+	max = v[i];
+
+loop:
+	if (v[i] >= max)
+		max = v[i];
+	i++;
+	if (i < len)
+		goto loop;	
+
+return max;
 }
